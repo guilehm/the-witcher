@@ -8,6 +8,10 @@ const app = new express()
 app.use(morgan('short'))
 app.use(helmet())
 
+const cleanStatsController = require('./controllers/clean-stats-controller')
+
+app.get('/', cleanStatsController)
+
 const PORT = process.env.PORT || 4000
 
 app.listen(PORT, () => {
