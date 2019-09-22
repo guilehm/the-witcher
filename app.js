@@ -8,6 +8,9 @@ const app = new express();
 app.use(morgan('short'));
 app.use(helmet());
 
+const getGameController = require('./controllers/get-game-controller');
+
+app.get('/', getGameController);
 
 const PORT = process.env.PORT || 4000;
 

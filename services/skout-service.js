@@ -12,10 +12,10 @@ async function configureScoutClient() {
     return ScoutClient;
 }
 
-async function getFortnite() {
+async function getFortnite(game) {
     await configureScoutClient();
     let titles = await Scout.titles.list();
-    let fortnite = titles.find(t => t.slug === "fortnite");
+    let fortnite = titles.find(t => t.slug === game);
     return fortnite;
 }
 
