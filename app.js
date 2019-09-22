@@ -9,8 +9,11 @@ app.use(morgan('short'));
 app.use(helmet());
 
 const getGameController = require('./controllers/get-game-controller');
+const findPlayersController = require('./controllers/find-players-controller');
 
-app.get('/', getGameController);
+app.get('/fortnite/', getGameController);
+app.get('/players/:name/', findPlayersController);
+
 
 const PORT = process.env.PORT || 4000;
 
