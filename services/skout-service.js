@@ -1,25 +1,6 @@
-const Scout = require("@scoutsdk/server-sdk");
+const { fortnite, Scout } = require('./skout-configurator');
 
-const SKOUT_CLIENT_ID = process.env.SKOUT_CLIENT_ID;
-const SKOUT_CLIENT_SECRET = process.env.SKOUT_CLIENT_SECRET;
-
-async function configureScoutClient() {
-    let ScoutClient = await Scout.configure({
-        clientId: SKOUT_CLIENT_ID,
-        clientSecret: SKOUT_CLIENT_SECRET,
-        scope: "public.read"
-    });
-    return ScoutClient;
-}
-
-async function getFortnite(game) {
-    let titles = await Scout.titles.list();
-    let fortnite = titles.find(t => t.slug === game);
-    return fortnite;
-}
-
-async function findPlayers(name, platform=null, comprehensive=true, exact=true) {
-    let fortnite = await getFortnite('fortnite');
+async function findPlayers(name, platform = null, comprehensive = true, exact = true) {
     let players = await Scout.players.search(
         name,
         'epic',
@@ -27,10 +8,18 @@ async function findPlayers(name, platform=null, comprehensive=true, exact=true) 
         fortnite.id,
         comprehensive,
         exact,
-    );
+    ).catch(err => err);
     return players;
 }
 
-configureScoutClient();
+async function getPlayerStats(playerId) {
+    let playerStats = await Scout.players.get(
+        fortnite.id,
+        playerId,
+        '*',
+    ).catch(err => err);
+    return playerStats;
+}
 
-module.exports = { getFortnite, findPlayers };
+
+module.exports = { findPlayers, getPlayerStats };
