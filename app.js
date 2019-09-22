@@ -10,9 +10,11 @@ app.use(helmet());
 
 const getGameController = require('./controllers/get-game-controller');
 const findPlayersController = require('./controllers/find-players-controller');
+const playerStatsController = require('./controllers/player-stats-controller');
 
 app.get('/fortnite/', getGameController);
 app.get('/players/:name/', findPlayersController);
+app.get('/players/:id/stats/', playerStatsController);
 
 
 const PORT = process.env.PORT || 4000;
