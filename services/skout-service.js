@@ -13,10 +13,24 @@ async function configureScoutClient() {
 }
 
 async function getFortnite(game) {
-    await configureScoutClient();
     let titles = await Scout.titles.list();
     let fortnite = titles.find(t => t.slug === game);
     return fortnite;
 }
 
-module.exports = { configureScoutClient, getFortnite };
+async function findPlayers(name, platform=null, comprehensive=true, exact=true) {
+    let fortnite = await getFortnite('fortnite');
+    let players = await Scout.players.search(
+        name,
+        'epic',
+        platform,
+        fortnite.id,
+        comprehensive,
+        exact,
+    );
+    return players;
+}
+
+configureScoutClient();
+
+module.exports = { getFortnite, findPlayers };
