@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Guilehm/the-witcher#readme",
   "dependencies": {
+    "@scoutsdk/server-sdk": "^0.7.0",
     "axios": "^0.19.0",
     "express": "^4.17.1",
     "helmet": "^3.19.0",
