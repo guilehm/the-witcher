@@ -23,5 +23,5 @@ async function getFortnite(game) {
 
 configureScoutClient();
 
-module.exports.fortnite = getFortnite();
+module.exports.fortnite = getFortnite('fortnite');
 module.exports.Scout = Scout;
