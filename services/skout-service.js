@@ -1,6 +1,6 @@
 const { Scout, getFortnite } = require('./skout-configurator');
 
-async function findPlayers(name, platform = null, comprehensive = true, exact = false) {
+async function findPlayers(name, platform = null, comprehensive = true, exact = true) {
     let fortnite = await getFortnite('fortnite');
     let players = await Scout.players.search(
         name,
