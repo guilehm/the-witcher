@@ -14,10 +14,11 @@ async function findPlayers(name, platform = null, comprehensive = true, exact = 
     return players;
 }
 
-async function getPlayerStats(playerId) {
+async function getPlayerStats(playerId, segment = '*') {
     let playerStats = await Scout.players.get(
         'fortnite',
         playerId,
+        segment,
     ).catch(err => err);
     return playerStats;
 }
