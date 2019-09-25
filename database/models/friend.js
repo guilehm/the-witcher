@@ -10,6 +10,11 @@ const FriendSchema = new mongoose.Schema({
         type: String,
         required: false,
         unique: true,
+    },
+    platform: {
+        type: String,
+        required: false,
+        unique: false,
     }
 });
 
