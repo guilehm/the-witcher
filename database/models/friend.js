@@ -11,11 +11,6 @@ const FriendSchema = new mongoose.Schema({
         required: false,
         unique: true,
     },
-    platform: {
-        type: String,
-        required: false,
-        unique: false,
-    }
 });
 
 const Friend = mongoose.model('Friend', FriendSchema);
