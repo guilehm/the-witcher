@@ -34,7 +34,6 @@ app.get('/players/:name/', findPlayersController);
 app.get(/players\/(.*)\/stats/, playerStatsController);
 
 
-
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
