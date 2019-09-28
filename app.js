@@ -31,7 +31,8 @@ app.use(function (req, res, next) {
 app.get('/fortnite/', getGameController);
 app.get('/friends/', friendListController);
 app.get('/players/:name/', findPlayersController);
-app.get('/players/:id/stats/', playerStatsController);
+app.get(/players\/(.*)\/stats/, playerStatsController);
+
 
 
 const PORT = process.env.PORT || 4000;
