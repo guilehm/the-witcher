@@ -2,8 +2,8 @@ const Friend = require('../database/models/friend');
 
 module.exports = async (req, res) => {
 
-    let handleResponse = err => {
-        return res.json(err);
+    let handleResponse = data => {
+        return res.json(data);
     };
 
     await Friend.find({})
