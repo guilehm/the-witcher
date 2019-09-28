@@ -1,4 +1,4 @@
-const { getFortnite } = require('../services/skout-service');
+const { getFortnite } = require('../services/skout-configurator');
 
 module.exports = async (req, res) => {
     let fortnite = await getFortnite('fortnite');
