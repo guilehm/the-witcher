@@ -9,8 +9,11 @@ module.exports = async (req, res) => {
 
     // save this for metadata endpoint
     if (status === 200) {
-        Metadata.collection.drop()
         let metadatas = stats.stats.map(data => data['metadata'])
-        Metadata.collection.insert(metadatas)
+        metadatas.forEach(data => {
+            Metadata.findOneAndUpdate({ key: data.key }, data, { upsert: true })
+                .then(m => console.log(m))
+                .catch(e => console.log(e))
+        })
     }
 };
