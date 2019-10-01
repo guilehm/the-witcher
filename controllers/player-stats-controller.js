@@ -1,5 +1,5 @@
 const { getPlayerStats } = require('../services/skout-service');
-const { saveMetadata } = require('../utils/utils')
+const { saveMetadata, saveSegment } = require('../utils/utils')
 
 module.exports = async (req, res) => {
     let playerId = req.params[0];
@@ -10,5 +10,6 @@ module.exports = async (req, res) => {
     // save this for metadata endpoint
     if (status === 200) {
         saveMetadata(stats)
+        saveSegment(stats)
     }
 };
