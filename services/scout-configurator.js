@@ -1,13 +1,13 @@
 const Scout = require("@scoutsdk/server-sdk");
 
-const SKOUT_CLIENT_ID = process.env.SKOUT_CLIENT_ID;
-const SKOUT_CLIENT_SECRET = process.env.SKOUT_CLIENT_SECRET;
+const SCOUT_CLIENT_ID = process.env.SCOUT_CLIENT_ID;
+const SCOUT_CLIENT_SECRET = process.env.SCOUT_CLIENT_SECRET;
 
 
 async function configureScoutClient() {
     let ScoutClient = await Scout.configure({
-        clientId: SKOUT_CLIENT_ID,
-        clientSecret: SKOUT_CLIENT_SECRET,
+        clientId: SCOUT_CLIENT_ID,
+        clientSecret: SCOUT_CLIENT_SECRET,
         scope: "public.read"
     });
     return ScoutClient;
