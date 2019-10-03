@@ -1,4 +1,4 @@
-const { findPlayers } = require('../services/skout-service');
+const { findPlayers } = require('../services/scout-service');
 
 module.exports = async (req, res) => {
     let name = req.params.name;

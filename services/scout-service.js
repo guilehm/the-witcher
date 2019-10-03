@@ -1,4 +1,4 @@
-const { Scout, getFortnite } = require('./skout-configurator');
+const { Scout, getFortnite } = require('./scout-configurator');
 
 
 async function findPlayers(name, platform = null, comprehensive = true, exact = true) {
