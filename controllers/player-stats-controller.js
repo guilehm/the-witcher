@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     let status = stats.id ? 200 : 400;
     res.status(status).json(stats);
 
-    // save this for metadata endpoint
+    // save this for metadata and segment endpoints
     if (status === 200) {
         saveMetadata(stats);
         saveSegment(stats);
